@@ -6,13 +6,13 @@
 public class SimpleHashTable {
       private int TABLE_SIZE;
       private int size; 
-      private LinkedHashEntry[] table;
+      private HashEntry[] table;
    
        /* Constructor */
       public SimpleHashTable(int ts) {
           size = 0;
           TABLE_SIZE = ts;
-          table = new LinkedHashEntry[TABLE_SIZE];
+          table = new HashEntry[TABLE_SIZE];
           for (int i = 0; i < TABLE_SIZE; i++)
               table[i] = null;
       } 
@@ -45,7 +45,7 @@ public class SimpleHashTable {
           size--;
       }
 
-      /* value to create the Hash code from he name entered, basically converting name to ASCII */
+      /* value to create the Hash code from he name entered */
       private int calculateHashCode(String key) {
           int mod = key.hashCode() % TABLE_SIZE;
           return mod < 0 ? mod + TABLE_SIZE : mod;
